@@ -1,0 +1,40 @@
+<form (ngSubmit)="saveTodo()" #addfrm=ngForm>
+    <table class="table table-dark">
+        <tr><td>Task</td>
+            <td><input [(ngModel)]="todo.task" name="task" #task='ngModel'
+                required placeholder="Add your task" />
+                  <span *ngIf="task.dirty && task.invalid" class="alert-danger">
+                    Task is required
+                  </span></td>
+        </tr>
+        <tr><td>Assigned Date</td>
+            <td><input [(ngModel)]="todo.assignDate" name="assignDate" required 
+                type="date">
+                
+        </tr>
+        <tr><td>Finish Date</td>
+          <td><input [(ngModel)]="todo.finishDate" name="finishDate" required
+                type="date" />
+                
+        </tr>
+        <tr><td>Category</td>
+        <td><select [(ngModel)]="todo.category" name="category" #category='ngModel' required>
+                <option *ngFor="let c of categories" [value]="c">{{c}}</option>
+            </select>
+        </td></tr>
+        <tr><td>Priority</td>
+        <td><select [(ngModel)]="todo.priority" name="priority" #priority='ngModel' required>
+                <option *ngFor="let p of priorities" [value]="p">{{p}}</option>
+            </select>
+        </td></tr>
+        <tr><td>Status</td>
+        <td><select [(ngModel)]="todo.status" name="status" #status='ngModel' required>
+                <option *ngFor="let s of stats" [value]="s">{{s}}</option>
+            </select>
+        </td></tr>
+        <tr><th colspan="2">
+            <button type="submit" class="btn btn-success" [disabled]=!addfrm.valid>Save Task</button>
+        </th></tr>
+    </table>
+</form>
+

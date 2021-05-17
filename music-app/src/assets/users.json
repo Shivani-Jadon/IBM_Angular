@@ -1,0 +1,17 @@
+[
+    {
+        "userid":"Ram",
+        "passwd":"apple",
+        "role":"Admin"
+    },
+    {
+        "userid":"Shyaam",
+        "passwd":"mango",
+        "role":"User"
+    },
+    {
+        "userid":"Liya",
+        "passwd":"banana",
+        "role":"Guest"
+    }
+]

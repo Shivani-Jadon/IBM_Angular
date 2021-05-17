@@ -1,0 +1,31 @@
+<form (ngSubmit)="saveUser()" #addfrm=ngForm>
+    <table class="table table-dark">
+        <tr><td>Name</td>
+            <td><input [(ngModel)]="user.name" name="username" #username='ngModel'
+                required placeholder="Enter Username" />
+                <!-- the username is taken here from name property (angular validation) -->
+                  <span *ngIf="username.dirty && username.invalid" class="alert-danger">
+                    Username is required
+                  </span></td>
+        </tr>
+        <tr><td>Email</td>
+            <td><input [(ngModel)]="user.email" name="email" #email='ngModel'
+                required placeholder="Enter email" />
+                <!-- the email is taken here from name property (angular validation) -->
+                  <span *ngIf="email.dirty && email.invalid" class="alert-danger">
+                    Email is required
+                  </span></td>
+        </tr>
+        <tr><td>Password</td>
+            <td><input type="password" [(ngModel)]="user.password" name="password" #password='ngModel'
+                required placeholder="Enter Password" />
+                <!-- the username is taken here from name property (angular validation) -->
+                  <span *ngIf="password.dirty && password.invalid" class="alert-danger">
+                    Password is required
+                  </span></td>
+        </tr>
+        <tr><th colspan="2">
+            <button type="submit" class="btn btn-success" [disabled]=!addfrm.valid>Add User</button>
+        </th></tr>
+    </table>
+</form>
